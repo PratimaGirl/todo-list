@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
-  <button routerLink="/todoList" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button routerLink="/todoList" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" *ngIf="isAuthenticated">
     <mat-icon class="menu-icon">menu</mat-icon>
   </button>
   <nav mat-tab-nav-bar class="tabs">
-    <button mat-raised-button class="accent logout" (click)="onLogout()">LogOut</button>
-    <div class="mat-icon-wrapper">
+    <button mat-raised-button class="accent logout" (click)="onLogout()" *ngIf="isAuthenticated">LogOut</button>
+    <div class="mat-icon-wrapper" *ngIf="isAuthenticated">
       <mat-icon class="mat-badge"
         (click)="newNotifications()" 
         matBadge="{{ unreadCount }}" 
