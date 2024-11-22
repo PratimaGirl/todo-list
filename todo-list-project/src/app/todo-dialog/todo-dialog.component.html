@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{ userBtn }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="userForm">
+    <mat-form-field appearance="outline">
+      <mat-label> Title </mat-label>
+      <input formControlName="title" matInput placeholder="Title" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label> Description </mat-label>
+      <input formControlName="description" matInput placeholder="Description" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label> Status </mat-label>
+      <input formControlName="status" matInput placeholder="Status" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option value="low">Low</mat-option>
+        <mat-option value="medium">Medium</mat-option>
+        <mat-option value="high">High</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="primary" (click)="addTask()">
+    {{ actionBtn }}
+  </button>
+</div>

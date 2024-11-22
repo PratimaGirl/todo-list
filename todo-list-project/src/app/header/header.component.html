@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <button routerLink="/todoList" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon class="menu-icon">menu</mat-icon>
+  </button>
+  <nav mat-tab-nav-bar class="tabs">
+    <button mat-raised-button class="accent logout" (click)="onLogout()">LogOut</button>
+    <div class="mat-icon-wrapper">
+      <mat-icon class="mat-badge"
+        (click)="newNotifications()" 
+        matBadge="{{ unreadCount }}" 
+        matBadgeColor="accent" 
+        matBadgePosition="above after">
+        notifications
+      </mat-icon>
+    </div>
+  </nav>
+</mat-toolbar>

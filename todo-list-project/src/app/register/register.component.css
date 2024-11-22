@@ -1,0 +1,54 @@
+.card-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+#profile-img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.alert {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.alert-danger,
+.mat-error {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.alert-success {
+  color: #388e3c;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid #c8e6c9;
+  border-radius: 4px;
+  background-color: #e8f5e9;
+}

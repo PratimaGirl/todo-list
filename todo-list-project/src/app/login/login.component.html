@@ -1,0 +1,72 @@
+<div class="col-md-12">
+  <div class="example-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      [formGroup]="loginForm"
+      *ngIf="!isSuccessful"
+      (ngSubmit)="onSubmit()"
+      novalidate
+    >
+      <div>
+        <h1>Log In</h1>
+
+        <mat-form-field class="form-field" appearance="fill">
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email"
+            type="email"
+          />
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Please provide a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="fill">
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+          />
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+            Password must be at least 6 characters
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          [disabled]="!loginForm.valid"
+          type="submit"
+          color="primary"
+        >
+          <b>Login</b>
+        </button>
+        <br />
+        <br />
+        <br />
+        <span>
+          If you don't have an account yet please
+          <a routerLink="/signup">REGISTER HERE</a>
+        </span>
+      </div>
+      <div class="alert alert-warning" *ngIf="isLoginFailed">
+        Login failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your login is successful!
+    </div>
+  </div>
+</div>

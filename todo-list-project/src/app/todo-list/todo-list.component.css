@@ -1,0 +1,64 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.task-card {
+  background: #b9f3f5;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.task-card-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.task-card-body {
+  flex-grow: 1;
+  margin-bottom: 8px;
+}
+
+.task-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.green-icon {
+  color: rgb(12, 148, 18);
+}
+
+mat-form-field {
+  padding: 0 15px;
+  font-size: 14px;
+  width: 30%;
+}
+
+.add-task {
+  padding: 0 15px;
+  margin-left: 50px;
+}
+
+.search-bar {
+  margin-top: 15px;
+}
+
+mat-slide-toggle {
+  margin-left: 50px;
+  background-color: aliceblue;
+  padding: 15px;
+}
+
+button {
+  margin-left: 50px;
+}
+
+.font-size {
+  font-size: 20px;
+}

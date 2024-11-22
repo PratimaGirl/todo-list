@@ -1,0 +1,18 @@
+<div class="notifications-container">
+  <h3>Notifications</h3>
+  <button mat-button color="warn" class="delete-all" *ngIf="notifications.length > 0" (click)="deleteAllNotifications()">
+    Delete All
+  </button>
+  <div *ngIf="notifications.length === 0" class="no-notifications">
+    <p>No Notifications</p>
+  </div>
+  <div *ngFor="let notification of notifications">
+    <div class="notification-card" [ngClass]="{ read: notification.isRead }">
+      <p>{{ notification.message || "No Notifications" }}</p>
+      <span *ngIf="!notification.isRead">
+        <button mat-button color="primary" class="mark-as-read" (click)="markAsRead(notification._id)">Mark as Read</button>
+      </span>
+      <button mat-button color="warn" (click)="deleteNotification(notification._id)"><mat-icon>delete</mat-icon></button>
+    </div>
+  </div>
+</div>

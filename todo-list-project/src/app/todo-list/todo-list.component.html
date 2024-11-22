@@ -1,0 +1,73 @@
+<div class="mat-elevation-z8">
+  <mat-form-field appearance="fill" class="search-bar">
+    <mat-label><mat-icon>search</mat-icon> Search Something</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input />
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="priority-filter">
+    <mat-label>Filter by Priority</mat-label>
+    <mat-select (selectionChange)="filterByPriority($event.value)">
+      <mat-option value="">All</mat-option>
+      <mat-option value="high">High</mat-option>
+      <mat-option value="medium">Medium</mat-option>
+      <mat-option value="low">Low</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button (click)="sortByPriority()">Sort by Priority</button>
+  <mat-slide-toggle
+    (change)="toggleCompletedTasks($event.checked)"
+    mat-raised-button
+  >
+    Show Completed Tasks
+  </mat-slide-toggle>
+
+  <button
+    class="add-task"
+    mat-raised-button
+    color="accent"
+    (click)="openDialog()"
+  >
+    Add Task
+  </button>
+
+  <div class="cards-container" cdkDropList (cdkDropListDropped)="drag($event)">
+    <div
+      class="task-card mat-elevation-z2"
+      *ngFor="let element of dataSource.filteredData"
+      cdkDrag
+      [ngStyle]="{
+        'background-color': getCardBackgroundColor(element),
+        'text-decoration': element.status === 'Done' ? 'line-through' : 'none',
+        opacity: element.status === 'Done' ? 0.3 : 1
+      }"
+    >
+      <div class="task-card-header">
+        <p>Title: </p>
+        <h2>{{ element.title }}</h2>
+        <p>{{ element.date | date }}</p>
+      </div>
+      <div class="task-card-body">
+        <p><u>Description:</u> <b class="font-size"> {{ element.description }}</b></p>
+        <p>
+          Status:
+          <span [ngStyle]="{ color: getStatusColor(element) }">{{
+            element.status
+          }}</span>
+        </p>
+      </div>
+      <div class="task-card-body">
+        <p>Priority: {{ element.priority }}</p>
+      </div>
+      <div class="task-card-actions">
+        <button mat-icon-button color="primary" (click)="editTask(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button class="green-icon" (click)="doneTodo(element)">
+          <mat-icon>done_outline</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteTodo(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
